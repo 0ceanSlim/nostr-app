@@ -20,7 +20,7 @@
     }
 
     const user = ndk.getUser({
-        npub: 'npub1zmc6qyqdfnllhnzzxr5wpepfpnzcf8q6m3jdveflmgruqvd3qa9sjv7f60'
+        npub: 'npub13h8p83hfty5cmng9sgrydxsd98h7yz9thk9yu299rzs56jx0325qssl9kt'
     });
 
     console.log(user);
