@@ -5,22 +5,6 @@ Nostrbook: Bringing Social Media Back to Its Roots
 
 Really, my goal with Nostrbook is to recapture the essence of social media from a simpler time. I want to rekindle the joy of adding your actual friends and family to stay connected in a more personal, genuine way, stepping away from the impersonal nature of modern social media to enjoy a more authentic online experience without instrusive ads and algorithms!
 
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
