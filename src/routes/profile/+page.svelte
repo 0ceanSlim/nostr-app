@@ -3,7 +3,6 @@
     import NDK, { type NDKUserProfile } from '@nostr-dev-kit/ndk';
     import { browser } from '$app/environment';
     import { NDKNip07Signer } from '@nostr-dev-kit/ndk'; 
-    import type { NDKUserProfile } from '@nostr-dev-kit/ndk'
 
     // Create a new NDK instance with explicit relays
     const ndk = new NDK({
