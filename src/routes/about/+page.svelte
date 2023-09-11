@@ -214,8 +214,14 @@
                     style="width:100%; height:max;border-radius:16px;"
                     alt="profile picture"
                 />
-                View photos of me <br />Edit my profile<br /><br />website<br /><br />Basic
-                Information<br />
+                View photos of me <br />Edit my profile<br />send me a message<br />poke me<br /><br
+                />
+                <p>
+                    {user.profile?.about}
+                </p>
+                <br /><br />Basic Information<br />Relationship status<br />Hometown<br />current
+                city<br />
+                Birthday<br />
             </aside>
             <div class="right-sections">
                 <div class="above-content-bar">
