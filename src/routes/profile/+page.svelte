@@ -1,7 +1,9 @@
 <script lang="ts">
     // Import the package
-    import NDK from '@nostr-dev-kit/ndk';
+    import NDK, { type NDKUserProfile } from '@nostr-dev-kit/ndk';
     import { browser } from '$app/environment';
+    import { NDKNip07Signer } from '@nostr-dev-kit/ndk'; 
+    import type { NDKUserProfile } from '@nostr-dev-kit/ndk'
 
     // Create a new NDK instance with explicit relays
     const ndk = new NDK({
@@ -13,21 +15,33 @@
         ]
     });
 
+    let userProfile: NDKUserProfile;
+
     if (browser) {
         ndk.connect().then(() => {
             console.log('Connected');
         });
     }
 
-    const user = ndk.getUser({
-        npub: 'npub13h8p83hfty5cmng9sgrydxsd98h7yz9thk9yu299rzs56jx0325qssl9kt'
-    });
+    async function login() {
+        const signer = new NDKNip07Signer();
+        ndk.signer = signer;
+        signer.user().then((user) => {
+            user.ndk = ndk;
+            user.fetchProfile().then((eventSet) => {
+                console.log(user);
+                userProfile = user.profile as NDKUserProfile;
+            });
+        });
+    }
 
-    console.log(user);
 </script>
 
+<button on:click={login}> Log in with Browser Extension (NIP-07)</button>
+
+
 <!-- svelte-ignore empty-block -->
-{#await user.fetchProfile() then events}
+{#if userProfile}
     <style>
         /* Reset some default styles */
         body,
@@ -210,14 +224,14 @@
                 <!-- 1st section (Your Profile) content here -->
                 <!-- svelte-ignore a11y-img-redundant-alt -->
                 <img
-                    src={user.profile?.image}
+                    src={userProfile.image}
                     style="width:100%; height:max;border-radius:16px;"
                     alt="profile picture"
                 />
                 View photos of me <br />Edit my profile<br />send me a message<br />poke me<br /><br
                 />
                 <p>
-                    {user.profile?.about}
+                    {userProfile.about}
                 </p>
                 <br /><br />Basic Information<br />Relationship status<br />Hometown<br />current
                 city<br />
@@ -226,7 +240,7 @@
             <div class="right-sections">
                 <div class="above-content-bar">
                     <!-- 2nd section (Username and Status) content here -->
-                    <h1>{user.profile?.name}</h1>
+                    <h1>{userProfile.name}</h1>
                 </div>
                 <main class="main-content">
                     WALL Info Photos<br />write something .post.<br />sort by: all posts, posts by
@@ -243,4 +257,4 @@
             </aside>
         </div>
     </body>
-{/await}
+{/if}
