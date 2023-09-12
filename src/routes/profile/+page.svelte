@@ -33,7 +33,6 @@
             });
         });
     }
-
 </script>
 
 <button on:click={login}> Log in with Browser Extension (NIP-07)</button>
@@ -102,7 +101,6 @@
                     when you become friends with people. post something.
                     <!-- 3rd section (Wall) content here -->
                 </main>
-                
             </div>
             <aside class="right-sidebar">
                 <!-- 4th section (Trending Posts) content here -->
