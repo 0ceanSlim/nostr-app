@@ -2,7 +2,7 @@
     // Import the package
     import NDK, { type NDKUserProfile } from '@nostr-dev-kit/ndk';
     import { browser } from '$app/environment';
-    import { NDKNip07Signer } from '@nostr-dev-kit/ndk'; 
+    import { NDKNip07Signer } from '@nostr-dev-kit/ndk';
 
     // Create a new NDK instance with explicit relays
     const ndk = new NDK({
@@ -33,11 +33,9 @@
             });
         });
     }
-
 </script>
 
 <button on:click={login}> Log in with Browser Extension (NIP-07)</button>
-
 
 <!-- svelte-ignore empty-block -->
 {#if userProfile}
@@ -60,7 +58,7 @@
         }
 
         /* Style the logo */
-        .logo img {
+        .logo {
             max-height: 100%;
         }
 
@@ -123,6 +121,29 @@
             padding: 5px 10px;
             cursor: pointer;
         }
+        /* Style the post box */
+        .post-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .post-box input[type='text'] {
+            height: 30px;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .post-button {
+            height: 40px;
+            width: 40px;
+            background-color: #555;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
         .main-container {
             display: flex;
             flex-wrap: wrap;
@@ -131,7 +152,7 @@
         /* Style the left sidebar (1st section) */
         .left-sidebar {
             width: 15%;
-            background-color: #edeff2; /* Example background color */
+            background-color: #ffffff; /* Example background color */
             padding: 20px;
         }
 
@@ -191,12 +212,8 @@
     <body>
         <header>
             <nav class="top-nav">
-                <div class="logo">
-                    <img
-                        src="your-logo.png"
-                        alt="nostrbook"
-                        style="font-weight: bold; color:white; font-size: 30px;"
-                    />
+                <div class="logo" style="font-weight: bold; color:white; font-size: 30px;">
+                    nostrbook
                 </div>
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
@@ -242,10 +259,14 @@
                     <h1>{userProfile.name}</h1>
                 </div>
                 <main class="main-content">
-                    WALL Info Photos<br />write something .post.<br />sort by: all posts, posts by
-                    you, posts by others, wall-to-wall<br /> chronological feed of your nostr
-                    activity. your wall. when you comment on something. when you become friends with
-                    people. post something.
+                    | WALL | Info | Photos |<br />
+                    <div class="post-box">
+                        <input type="text" placeholder="write something" />
+                        <button class="post-button" />
+                    </div>
+                    <br />sort by: all posts, posts by you, posts by others, wall-to-wall<br />
+                    chronological feed of your nostr activity. your wall. when you comment on something.
+                    when you become friends with people. post something.
                     <!-- 3rd section (Wall) content here -->
                 </main>
             </div>
