@@ -1,15 +1,35 @@
 # nostrbook
 
-Nostrbook is a throwback to 2008-era Facebook, powered by the Nostr protocol. It simplifies friend connections with "pending" and "accepted" lists. If you're both on each other's "pending" lists, you become friends. This system allows features like mutual friends, wall access, and posting on walls. Nostalgia is a hell of a drug. 
+Nostrbook is a throwback to 2008-2009 era Facebook, powered by the Nostr protocol. It simplifies friend connections with "pending" and "accepted" lists. If you're both on each other's "pending" lists, you become friends. This system allows features like mutual friends, wall access, and posting on walls. Nostalgia is a hell of a drug.
 Nostrbook: Bringing Social Media Back to Its Roots
 
 Really, my goal with Nostrbook is to recapture the essence of social media from a simpler time. I want to rekindle the joy of adding your actual friends and family to stay connected in a more personal, genuine way, stepping away from the impersonal nature of modern social media to enjoy a more authentic online experience without instrusive ads and algorithms!
 
 - send dm to send a friend request that draft a message to the npub saying something like "x has sent you a nostrbook friend request. would you like to add y to your nostrbook friends list? (kind 30000)"
 
+## Prerequisites
+
+##### git
+
+If you don't already have `git` for windows you can download it [here](https://github.com/git-for-windows/git/releases/download/v2.42.0.windows.2/Git-2.42.0.2-64-bit.exe)
+
+- make sure to add `git` to PATH during install
+
+##### NodeJS
+
+You will also need NodeJS installed and have `npm` in your PATH to run the development server. The installer should add it to your PATH but if you are having issues, check this.
+
+You can install NodeJS for Windows (x64) 18.17.1 LTS [here](https://nodejs.org/dist/v18.17.1/node-v18.17.1-x64.msi)
+
+Run `npm -v` to check the version and confirm it is working properly
+
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Clone this repository with `git clone git.happytavern.co/oceanslim/nostr-app.git`
+
+install dependencies with `npm install`
+
+Then, start a development server:
 
 ```bash
 npm run dev
