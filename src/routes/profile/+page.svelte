@@ -41,8 +41,8 @@
 {#if userProfile}
     <body>
         <header>
-            <nav class="top-nav">
-                <div class="font-sans font-bold text-white text-4xl">nostrbook</div>
+            <nav class="bg-blue-600 h-16 flex justify-between items-center py-2">
+                <div class="font-sans font-bold text-white text-4xl pl-2">nostrbook</div>
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Profile</a></li>
