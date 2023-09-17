@@ -46,15 +46,15 @@
             <nav class="bg-blue-600 h-16 flex justify-between items-center py-2">
                 <div class="font-sans font-bold text-white text-4xl pl-2">nostrbook</div>
                 <ul class="flex gap-4 text-white mr-10">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Friends</a></li>
-                    <li><a href="#">Inbox</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#/profile">Profile</a></li>
+                    <li><a href="/friends">Friends</a></li>
+                    <li><a href="/inbox">Inbox</a></li>
                 </ul>
                 <div class="flex items-center gap-4">
                     <ul class="flex gap-4 text-white">
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="/settings">Settings</a></li>
+                        <li><a href="/logout">Logout</a></li>
                     </ul>
                     <div class="flex items-center">
                         <input type="text" placeholder="Search" class="h-8 px-2 rounded-md mr-2" />
