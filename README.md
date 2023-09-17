@@ -23,6 +23,11 @@ You can install NodeJS for Windows (x64) 18.17.1 LTS [here](https://nodejs.org/d
 
 Run `npm -v` to check the version and confirm it is working properly
 
+##### This App is styled with TailwindCSS
+
+- [Here](https://v2.tailwindcss.com/docs/utility-first) is a comparison of Tailwind to Traditional CSS
+- [Here](https://tailwindcss.com/docs/border-style) are the Tailwind Docs
+
 ## Developing
 
 Clone this repository with `git clone git.happytavern.co/oceanslim/nostr-app.git`

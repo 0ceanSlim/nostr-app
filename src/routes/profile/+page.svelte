@@ -73,7 +73,7 @@
                 <!-- svelte-ignore a11y-img-redundant-alt -->
                 <img
                     src={userProfile.image}
-                    class="w-full max-h-full rounded-lg mb-4 shadow-lg"
+                    class="w-full max-h-full rounded-lg shadow-lg border-solid border-2 border-white"
                     alt="Profile Picture"
                 />
                 <p>
