@@ -68,12 +68,12 @@
             </nav>
         </header>
         <div class="flex">
-            <aside class="w-1/5 bg-gray-200 p-4">
+            <aside class="w-1/5 bg-gray-200 p-4 overflow-y-visible">
                 <!-- 1st section (Your Profile) content here -->
                 <!-- svelte-ignore a11y-img-redundant-alt -->
                 <img
                     src={userProfile.image}
-                    class="w-full max-h-full rounded-lg"
+                    class="w-full max-h-full rounded-lg mb-4 shadow-lg"
                     alt="Profile Picture"
                 />
                 <p>
@@ -87,7 +87,7 @@
                 Birthday<br />
             </aside>
             <div class="flex-1">
-                <div class="bg-gray-300 p-4">
+                <div class="font-sans font-semibold bg-gray-200 p-4 text-2xl">
                     <!-- 2nd section (Username and Status) content here -->
                     <h1>{userProfile.name}</h1>
                 </div>
@@ -109,7 +109,7 @@
                     <!-- 3rd section (Wall) content here -->
                 </main>
             </div>
-            <aside class="w-1/5 bg-gray-300 p-4">
+            <aside class="w-1/5 bg-gray-200 p-4">
                 <!-- 4th section (Trending Posts) content here -->
                 Discover<br />
                 Stats
