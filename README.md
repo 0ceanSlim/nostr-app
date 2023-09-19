@@ -5,8 +5,6 @@ Nostrbook: Bringing Social Media Back to Its Roots
 
 Really, my goal with Nostrbook is to recapture the essence of social media from a simpler time. I want to rekindle the joy of adding your actual friends and family to stay connected in a more personal, genuine way, stepping away from the impersonal nature of modern social media to enjoy a more authentic online experience without instrusive ads and algorithms!
 
-- send dm to send a friend request that draft a message to the npub saying something like "x has sent you a nostrbook friend request. would you like to add y to your nostrbook friends list? (kind 30000)"
-
 ## Prerequisites
 
 ##### git
