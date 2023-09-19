@@ -1,8 +1,7 @@
 <script lang="ts">
     // Import the package
-    import NDK, { type NDKUserProfile } from '@nostr-dev-kit/ndk';
+    import NDK, {NDKNip07Signer, type NDKUserProfile, NDKEvent, type NDKFilter } from '@nostr-dev-kit/ndk';
     import { browser } from '$app/environment';
-    import { NDKNip07Signer } from '@nostr-dev-kit/ndk';
 
     // Create a new NDK instance with explicit relays
     const ndk = new NDK({
@@ -15,13 +14,15 @@
     });
 
     let userProfile: NDKUserProfile;
+    let recent: NDKEvent;
+    let usernPub:string;
 
     if (browser) {
         ndk.connect().then(() => {
             console.log('Connected');
         });
     }
-
+    
     async function login() {
         const signer = new NDKNip07Signer();
         ndk.signer = signer;
@@ -30,9 +31,16 @@
             user.fetchProfile().then((eventSet) => {
                 console.log(user);
                 userProfile = user.profile as NDKUserProfile;
+                
             });
         });
+        const filter: NDKFilter = {authors: [usernPub] };
+        const data: NDKEvent | null = await ndk.fetchEvent(filter);
+        console.log(data);
     }
+
+
+
 </script>
 
 <button class="rounded-md text-white bg-purple-600 p-1 m-1 font-semibold" on:click={login}>
@@ -103,6 +111,7 @@
                             class="bg-slate-400 text-white h-10 w-10 rounded-lg ml-2 flex items-center justify-center"
                         />
                     </div>
+                    <br />Most Recent Post:<br />
                     <br />sort by: all posts, posts by you, posts by others, wall-to-wall<br />
                     chronological feed of your nostr activity. your wall. when you comment on something.
                     when you become friends with people. post something.
