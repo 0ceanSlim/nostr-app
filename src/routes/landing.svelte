@@ -1,7 +1,6 @@
 <script lang="ts">
     import { browser } from '$app/environment';
-    import NDK, { type NDKUserProfile } from '@nostr-dev-kit/ndk';
-    import { NDKNip07Signer } from '@nostr-dev-kit/ndk';
+    import NDK, {NDKNip07Signer, type NDKUserProfile, NDKEvent, type NDKFilter } from '@nostr-dev-kit/ndk';
 
     const ndk = new NDK({
         explicitRelayUrls: [

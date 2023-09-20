@@ -1,3 +1,22 @@
+Here is my project directory:
+- src
+  - lib
+    - index.ts
+  - routes
+    - profile
+      - page.svelte
+    - layout.svelte
+    - page.svelte
+    - landing.svelte
+  - app.css
+  - app.d.ts
+  - app.html
+  - ndk.service.ts
+
+Here is the code for src\lib\index.ts:
+// place files you want to import through the `$lib` alias in this folder.
+
+Here is the code for src\routes\profile\+page.svelte:
 <script lang="ts">
     // Import the package
     import NDK, {NDKNip07Signer, type NDKUserProfile, NDKEvent, type NDKFilter } from '@nostr-dev-kit/ndk';
@@ -116,3 +135,119 @@
         </div>
     </body>
 {/if}
+
+Here is the code for src\routes\+layout.svelte:
+<script>
+    import '../app.css';
+</script>
+
+<slot />
+
+Here is the code for src\routes\+page.svelte:
+<!-- pages/+page.svelte -->
+
+<script lang="ts">
+    import Landing from './landing.svelte';
+</script>
+
+<Landing />
+
+Here is the code for src\routes\landing.svelte:
+<script lang="ts">
+    import { browser } from '$app/environment';
+    import NDK, {NDKNip07Signer, type NDKUserProfile, NDKEvent, type NDKFilter } from '@nostr-dev-kit/ndk';
+
+    const ndk = new NDK({
+        explicitRelayUrls: [
+            'wss://relay.nostr.band',
+            'wss://nos.lol',
+            'wss://relay.noswhere.com',
+            'wss://purplepag.es'
+        ]
+    });
+
+    let userProfile: NDKUserProfile;
+
+    if (browser) {
+        ndk.connect().then(() => {
+            console.log('Connected');
+        });
+    }
+
+    async function login() {
+        const signer = new NDKNip07Signer();
+        ndk.signer = signer;
+        signer.user().then((user) => {
+            user.ndk = ndk;
+            user.fetchProfile().then((eventSet) => {
+                console.log(user);
+                userProfile = user.profile as NDKUserProfile;
+            });
+        });
+    }
+</script>
+
+<button class="flex rounded-md text-white bg-purple-600 p-1 m-1 font-semibold" on:click={login}>
+    Log in with Browser Extension (NIP-07)</button
+>
+<br />
+<a class="rounded-md text-white bg-purple-600 p-1 mx-1 mt-2 font-semibold" href="/profile"
+    >Profile</a
+>
+
+Here is the code for src\app.css:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+Here is the code for src\app.d.ts:
+// See https://kit.svelte.dev/docs/types#app
+// for information about these interfaces
+
+import { getNDK } from './ndk.service';
+
+// Export a global variable that contains the NDK instance
+export const ndk = getNDK();
+
+declare global {
+	namespace App {
+		// interface Error {}
+		// interface Locals {}
+		// interface PageData {}
+		// interface Platform {}
+	}
+}
+
+export { };
+
+Here is the code for src\app.html:
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>
+
+Here is the code for ndk.service.ts:
+import NDK from '@nostr-dev-kit/ndk';
+
+// Instantiate NDK with your preferred relay URLs
+const ndk = new NDK({
+    explicitRelayUrls: [
+        'wss://relay.nostr.band',
+        'wss://nos.lol',
+        'wss://relay.noswhere.com',
+        'wss://purplepag.es'
+    ]
+});
+
+// Export a function that returns the NDK instance
+export function getNDK() {
+    return ndk;
+}
